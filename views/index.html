@@ -1,0 +1,53 @@
+
+<html> <head>
+<script src="bower_components/bitcore/bitcore.min.js"></script>
+<script src="bower_components/bitcore-lib/bitcore-lib.js"></script>
+<script src="bower_components/bitcore-payment-protocol/bitcore-payment-protocol.min.js"></script>
+<script src="bower_components/bitcore-explorers/bitcore-explorers.min.js"></script>
+<script src="qrcodejs/qrcode.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+
+</head> 
+<body>
+<form id="myForm" method="post">
+  Number 1:zldsc
+  <input type="hidden" id="amount" value=15244444> <br>
+
+<input type="submit" value="Submit"/>
+</form>
+<div class="answer"> Payment DEtails do you agree? if yes click on</div>
+<div id="answer"></div>
+<div id="a"></div>
+<br>
+ 
+<script>
+    $(document).ready(function(){
+        $("#myForm").submit(function(event){
+            //event.preventDefault();
+            var amount_ =$('#amount').val();;
+             $.ajax({
+                method: 'POST',
+                url: '/want_pay',
+                data: JSON.stringify({ 'amount': amount_ }),
+                contentType: 'application/json',
+   		processData: false,
+		success: function(data) {
+                    $('.answer').html("payment request received : \n"+data);
+                           //f(data);
+pay(data);
+ 
+ 
+                }
+
+            })
+        });
+    });
+</script>
+
+ 
+<script src="./main.js"></script>
+<script src="./bundle.js"></script>
+</body></html>
+
+
+

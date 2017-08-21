@@ -1,0 +1,12 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "license": "MIT",
+  "dependencies": {
+    "bitcore": "^4.1.1",
+    "bitcore-explorers": "^1.0.1",
+    "bitcore-lib": "^0.14.0",
+    "bitcore-payment-protocol": "^1.2.2",
+    "express": "^4.15.4" 
+  }
+}
